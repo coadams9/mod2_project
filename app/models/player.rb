@@ -5,5 +5,5 @@ class Player < ApplicationRecord
   validates :username, uniqueness: { case_sensitive: false }
   validates :email, presence: true, length: { minimum: 2 }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :bio, length: { minimum: 20 }
+  # validates :bio, length: { minimum: 20 }
 end

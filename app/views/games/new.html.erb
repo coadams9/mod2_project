@@ -8,8 +8,8 @@
   <%= f.label :location%>
   <%= f.text_field :location %>
 
-  <%= f.label :time%>
-  <%= f.text_field :time %>
+  <%= f.label :date %>
+  <%= datetime_select("game", "time", ampm: true, prompt: {day: 'Choose day', month: 'Choose month', year: 'Choose year'}, start_year: Date.today.year, end_year: Date.today.year + 1) %>
 
   <%= f.submit%>
 

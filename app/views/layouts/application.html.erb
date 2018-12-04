@@ -10,6 +10,22 @@
   </head>
 
   <body>
+    <nav>
+      <% if cur_player %>
+        <%= link_to "Logout", logout_path, method: :delete %>
+      <% else %>
+        <%= link_to("Login", login_path) %>  |
+        <%= link_to("Signup", new_player_path) %>
+      <% end %>
+    </nav>
+
+    <% if flash[:error] %>
+      <p style="color: red">
+        <%= flash[:error] %>
+      </p>
+    <% elsif flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+    <%end %>
     <%= yield %>
   </body>
 </html>

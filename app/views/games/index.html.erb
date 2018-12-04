@@ -2,8 +2,10 @@
 
 <ul>
 <% @games.each do |game|%>
-  <li><%= link_to(game.title, game_path(game))%></li>
-  <li><%= game.location%></li>
-  <li><%= game.time%> </li>
+  <h3>Title: <%= link_to(game.title, game_path(game))%></h3>
+  <li>Place: <%= game.location%></li>
+  <li>Time: <%= game.time%> </li>
+  </br>
+
 <%end%>
 <ul>
