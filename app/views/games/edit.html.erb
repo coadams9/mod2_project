@@ -1,6 +1,6 @@
 <h1>Edit Game<h1>
 
-  <%= form_for(@game) do |f| %>
+  <%= form_for @game, url: {action: "update"} do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
 

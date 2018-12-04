@@ -1,4 +1,7 @@
 <h1>Your Game </h1>
-<%=@game.title%>
-<%=@game.location%>
-<%=@game.time%>
+<h2>Created by <%= @player.name %></h2>
+<ul>
+  <li>Title: <%=@game.title%></li>
+<li>Location: <%=@game.location%></li>
+<li>Time: <%=@game.time%></li>
+</ul>

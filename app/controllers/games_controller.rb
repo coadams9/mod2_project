@@ -4,7 +4,9 @@ class GamesController < ApplicationController
   end
 
   def show
+    # byebug
     @game = Game.find(params[:id])
+    @player = Player.find(params[:player_id])
   end
 
   def new
@@ -17,7 +19,7 @@ class GamesController < ApplicationController
     # @game_player.save
     if @game.save
       @game_player = GamePlayer.create(game_id: @game.id, player_id: params[:player_id])
-      redirect_to new_player_game_path(@game)
+      redirect_to "/players/#{params[:player_id]}/games/#{@game.id}"
     else
       render :new
     end
@@ -30,7 +32,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     if @game.update(game_params)
-      redirect_to game_path(@game)
+      redirect_to "/players/#{params[:player_id]}/games/#{@game.id}"
     else
       render :edit
     end
