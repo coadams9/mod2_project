@@ -1,0 +1,15 @@
+<h1>Edit Your Profile</h1>
+
+<%= form_for @player do |f|%>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :Describe_Your_Game %>
+  <%= f.text_area :bio %>
+
+<%= f.submit %>
+
+<% end %>

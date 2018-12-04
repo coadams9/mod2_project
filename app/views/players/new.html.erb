@@ -1,0 +1,18 @@
+<h1>Welcome to Pickup!! Create A Profile</h1>
+
+<%= form_for @player do |f|%>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :Describe_Your_Game %>
+  <%= f.text_area :bio %>
+
+<%= f.submit %>
+
+<% end %>
