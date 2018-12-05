@@ -32,7 +32,7 @@ class GamesController < ApplicationController
     if @game_player.save
       redirect_to game_path(params[:id])
     else
-      render :game_path
+      render :
     end
   end
 
