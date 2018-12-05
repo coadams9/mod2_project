@@ -26,6 +26,10 @@
     <% elsif flash[:notice] %>
     <p><%= flash[:notice] %></p>
     <%end %>
+
+    <% if cur_player %>
+      <p>Welcome Baller <%= cur_player.name %>!!!</p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

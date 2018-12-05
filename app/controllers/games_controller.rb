@@ -13,12 +13,13 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-
   end
 
   def create
     # @game = Game.new(game_params)
+
     @game = cur_player.games.build(game_params)
+    @game.players << cur_player
     if @game.save
       # @game_player = GamePlayer.create(game_id: @game.id, player_id: params[:player_id])
       redirect_to game_path(@game.id)
@@ -32,7 +33,9 @@ class GamesController < ApplicationController
     if @game_player.save
       redirect_to game_path(params[:id])
     else
-      render :
+      flash[:error] = "You already joined this game! Please try another game."
+      @game = Game.find(params[:id])
+      render :show
     end
   end
 

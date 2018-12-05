@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  invited_id: 1
+  inviter_id: 1
+  game_id: 1
+  respoonded: false
+
+two:
+  invited_id: 1
+  inviter_id: 1
+  game_id: 1
+  respoonded: false

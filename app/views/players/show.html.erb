@@ -5,5 +5,21 @@
 <h2><%= @player.username %></h2>
 <p><%= @player.bio %></p>
 
+<h2> Upcoming games </h2>
+<% @player.games.where("time > ?", DateTime.now).each do |game| %>
+  <li><%= game.title %></li>
+  <li><%= game.time %></li>
+    </br>
+  <%end %>
+
 <h2><%= link_to "All Available Games", games_path %></h2>
 <h2><%= link_to "Create a game", new_game_path %></h2>
+
+
+#History
+<h2> Past Games </h2>
+<% @player.games.where("time < ?", DateTime.now).each do |game| %>
+  <li><%= game.title %></li>
+  <li><%= game.time %></li>
+    </br>
+  <%end %>

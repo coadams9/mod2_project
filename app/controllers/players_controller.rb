@@ -36,14 +36,7 @@ class PlayersController < ApplicationController
     end
   end
 
-  def join_game
-    @game_player = GamePlayer.new(player_id: cur_player.id, game_id: params[:id])
-    if @game_player.save
-      redirect_to game_path(params[:id])
-    else
-      render :game_path
-    end
-  end
+
 
 
 
