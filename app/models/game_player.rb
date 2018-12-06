@@ -4,6 +4,8 @@ class GamePlayer < ApplicationRecord
   belongs_to :game
   validates :player_id, uniqueness: {scope: :game_id}
 
+  
+
 
   # class Holiday < ApplicationRecord
   #   validates :name, uniqueness: { scope: :year,

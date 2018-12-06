@@ -4,5 +4,12 @@ class Game < ApplicationRecord
   has_many :invites
   validates :location, presence: true
   validates :time, presence: true
+  validates :title, presence: true
+
+  def self.find_game_from_invite(invite)
+    Game.find(invite.game_id)
+  end
+
+  
 
 end

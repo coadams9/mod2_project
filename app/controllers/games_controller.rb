@@ -36,10 +36,8 @@ class GamesController < ApplicationController
 
 
   def join_game
-    # if cur_player.inviteds.where("responded = ?", false)
-    #   has_responded(cur_player)
-    # else
-
+    # game = Game.find(params[:id])
+    # invite = Invite.find_invite_from_game(game)
 
     @game_player = GamePlayer.new(player_id: cur_player.id, game_id: params[:id])
     if @game_player.save

@@ -11,14 +11,26 @@ class Player < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   # validates :bio, length: { minimum: 20 }
 
-  # def current_games
-  #   @player.games.where("time > ?", DateTime.now).each do |game|
-  #   <li><%= game.title %></li>
-  #   <li><%= game.time %></li>
-  #     </br>
-  # end
 
-  
+
+  def self.cur_invites(player)
+    player.inviteds.where("responded = ?", false)
+  end
+
+  def self.all_but_me(me)
+    Player.all.reject do |player|
+      player == me
+    end
+  end
+
+  def self.my_games(me)
+    Game.all.where
+  end
+
+  def self.games_im_in(player)
+    player.games.where("time > ?", DateTime.now)
+  end
+
 
 
 end
