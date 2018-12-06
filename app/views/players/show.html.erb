@@ -5,6 +5,16 @@
 <h2><%= @player.username %></h2>
 <p><%= @player.bio %></p>
 
+<h2> Invites to games</h2>
+  <ul>
+  <% @player.inviteds.where("responded = ?", false).each do |invite| %>
+    <li>Game Title: <%=Game.find(invite.game_id).title %></li>
+    <%= button_to "Accept Invite", action: "join_game", controller: "games" %>
+      </br>
+  <%end %>
+  </ul>
+
+
 <h2> Upcoming games </h2>
 <% @player.games.where("time > ?", DateTime.now).each do |game| %>
   <li><%= game.title %></li>

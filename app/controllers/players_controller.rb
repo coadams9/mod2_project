@@ -36,7 +36,15 @@ class PlayersController < ApplicationController
     end
   end
 
+  def has_responded(cur_player)
+    x = Invite.find_by invited_id: (cur_player.id)
+    x.responded = true
+    x.save
+  end
 
+  def cur_invites
+    cur_player.inviteds.where("responded = ?", false)
+  end
 
 
 

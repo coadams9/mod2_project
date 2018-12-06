@@ -28,7 +28,19 @@ class GamesController < ApplicationController
     end
   end
 
+  def has_responded(player)
+    x = Invite.find_by invited_id: (player.id)
+    x.responded = true
+    x.save
+  end
+
+
   def join_game
+    # if cur_player.inviteds.where("responded = ?", false)
+    #   has_responded(cur_player)
+    # else
+
+
     @game_player = GamePlayer.new(player_id: cur_player.id, game_id: params[:id])
     if @game_player.save
       redirect_to game_path(params[:id])
@@ -37,6 +49,7 @@ class GamesController < ApplicationController
       @game = Game.find(params[:id])
       render :show
     end
+
   end
 
   def edit
