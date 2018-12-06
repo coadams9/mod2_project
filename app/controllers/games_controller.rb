@@ -13,12 +13,13 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-
   end
 
   def create
     # @game = Game.new(game_params)
+
     @game = cur_player.games.build(game_params)
+    @game.players << cur_player
     if @game.save
       # @game_player = GamePlayer.create(game_id: @game.id, player_id: params[:player_id])
       redirect_to game_path(@game.id)
@@ -27,13 +28,26 @@ class GamesController < ApplicationController
     end
   end
 
+  def has_responded(player)
+    x = Invite.find_by invited_id: (player.id)
+    x.responded = true
+    x.save
+  end
+
+
   def join_game
+    # game = Game.find(params[:id])
+    # invite = Invite.find_invite_from_game(game)
+
     @game_player = GamePlayer.new(player_id: cur_player.id, game_id: params[:id])
     if @game_player.save
       redirect_to game_path(params[:id])
     else
-      render :
+      flash[:error] = "You already joined this game! Please try another game."
+      @game = Game.find(params[:id])
+      render :show
     end
+
   end
 
   def edit

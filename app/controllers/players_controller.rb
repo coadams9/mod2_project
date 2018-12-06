@@ -1,5 +1,4 @@
 class PlayersController < ApplicationController
-
   def index
     @players = Player.all
   end
@@ -34,15 +33,27 @@ class PlayersController < ApplicationController
     end
   end
 
+  def has_responded(cur_player)
+    x = Invite.find_by invited_id: (cur_player.id)
+    x.responded = true
+    x.save
+  end
+
+  def cur_invites
+    cur_player.inviteds.where("responded = ?", false)
+  end
+
   def join_game
     @game_player = GamePlayer.new(player_id: cur_player.id, game_id: params[:id])
     if @game_player.save
       redirect_to game_path(params[:id])
     else
-      render :game_path
+      flash[:error] = "You already joined this game! Please try another game."
+      @game = Game.find(params[:id])
+      render :show
     end
-  end
 
+  end
 
 
 

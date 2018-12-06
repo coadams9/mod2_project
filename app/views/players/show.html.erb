@@ -1,9 +1,44 @@
 <h1>Your Profile Page</h1>
 
-<h1><%= @player.name %></h1>
+<h1>Name: <%= @player.name %></h1>
 
-<h2><%= @player.username %></h2>
-<p><%= @player.bio %></p>
+<h2>Username: <%= @player.username %></h2>
+<h2>Bio</h2>
+  <p><%= @player.bio %></p>
+
+
+
+<h2> Invites to games </h2>
+  <ul>
+  <% Player.cur_invites(@player).each do |invite| %>
+
+    <%if invite.responded == false %>
+      <li>Game title: <%= link_to Game.find(invite.game_id).title,  game_path(Game.find_game_from_invite(invite))%></li>
+      <%=  button_to "Accept", rsvp_path(invite.id, "accept") %>
+      <%=  button_to "Decline", rsvp_path(invite.id, "decline") %>
+    <%end %>
+
+  <%end %>
+  </ul>
+
+  <h2><%= link_to "Invite your friends", new_invite_path %></h2>
+
+
+<h2> Upcoming games </h2>
+<% Player.games_im_in(@player).each do |game| %>
+  <li><%= game.title %></li>
+  <li><%= game.time %></li>
+    </br>
+  <%end %>
 
 <h2><%= link_to "All Available Games", games_path %></h2>
 <h2><%= link_to "Create a game", new_game_path %></h2>
+
+
+#History
+<h2> Past Games </h2>
+<% @player.games.where("time < ?", DateTime.now).each do |game| %>
+  <li><%= game.title %></li>
+  <li><%= game.time %></li>
+    </br>
+  <%end %>
