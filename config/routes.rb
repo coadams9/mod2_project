@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :players, except: :destroy
   resources :games
   post '/games/:id/join_game', to: 'games#join_game'
-  resources :invites, only: [:new, :create]
+  post '/invites/:id/rsvp/:choice', to: 'invites#rsvp', as: "rsvp"
+  resources :invites
+
   # get '/players/:id/game_invite', to: 'games#show'
 
   get '/welcome', to: 'welcome#index'
