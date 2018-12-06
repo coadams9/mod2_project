@@ -13,7 +13,7 @@
   <% Player.cur_invites(@player).each do |invite| %>
 
     <%if invite.responded == false %>
-      <li>Game title: <%= link_to Game.find(invite.game_id).title,  game_path(Game.find_game_from_invite(invite))%></li>
+      <li>Game title: <%= link_to Game.find_game_from_invite(invite).title,  game_path(Game.find_game_from_invite(invite))%></li>
       <%=  button_to "Accept", rsvp_path(invite.id, "accept") %>
       <%=  button_to "Decline", rsvp_path(invite.id, "decline") %>
     <%end %>
@@ -35,7 +35,7 @@
 <h2><%= link_to "Create a game", new_game_path %></h2>
 
 
-#History
+
 <h2> Past Games </h2>
 <% @player.games.where("time < ?", DateTime.now).each do |game| %>
   <li><%= game.title %></li>

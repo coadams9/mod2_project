@@ -12,7 +12,9 @@
   <body>
     <nav>
       <% if cur_player %>
-        <%= link_to "Logout", logout_path, method: :delete %>
+        <%= link_to "Logout", logout_path, method: :delete %> <br>
+        <%= link_to "Player Home Page", player_path(cur_player) %>
+        <p>Welcome Baller <%= cur_player.name %>!!!</p>
       <% else %>
         <%= link_to("Login", login_path) %>  |
         <%= link_to("Signup", new_player_path) %>
@@ -28,9 +30,10 @@
         <%= flash[:notice] %></p>
     <%end %>
 
-    <% if cur_player %>
-      <p>Welcome Baller <%= cur_player.name %>!!!</p>
-    <% end %>
+
     <%= yield %>
   </body>
+
+
+
 </html>
