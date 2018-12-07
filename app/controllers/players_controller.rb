@@ -25,11 +25,15 @@ class PlayersController < ApplicationController
   end
 
   def create
+    byebug
     @player = Player.new(player_params)
+
     if @player.save
       redirect_to player_path(@player)
     else
       render :new
+      flash[:error] = "Couldn't save ya."
+      logger.error @player.errors.full_messages
     end
   end
 
