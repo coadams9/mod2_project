@@ -14,11 +14,11 @@ college_park = Game.create(title: "Bring it", location: "College Park", time: "6
 run_n_shoot = Game.create(title: "Game time", location: "Run n Shoot", time: "7:00pm")
 
 
-jerry = Player.create(name: "Jerry", email: "jerry@hotmail.com", username: "jerry", bio: "all-star", password: "Jfive")
-terry = Player.create(name: "Terry", email: "terry@hotmail.com", username: "terry", bio: "all-star", password: "Jfive")
-lerry = Player.create(name: "Lerry", email: "lerry@hotmail.com", username: "lerry", bio: "all-star", password: "Jfive")
-kerry = Player.create(name: "Kerry", email: "kerry@hotmail.com", username: "kerry", bio: "all-star", password: "Jfive")
-herry = Player.create(name: "Herry", email: "herry@hotmail.com", username: "herry", bio: "all-star", password: "Jfive")
+jerry = Player.create(name: "Jerry", email: "jerry@hotmail.com", username: "jerry", bio: "all-star", password: "Jfive", password_confirmation: "Jfive")
+terry = Player.create(name: "Terry", email: "terry@hotmail.com", username: "terry", bio: "all-star", password: "Jfive", password_confirmation: "Jfive")
+lerry = Player.create(name: "Lerry", email: "lerry@hotmail.com", username: "lerry", bio: "all-star", password: "Jfive", password_confirmation: "Jfive")
+kerry = Player.create(name: "Kerry", email: "kerry@hotmail.com", username: "kerry", bio: "all-star", password: "Jfive", password_confirmation: "Jfive")
+herry = Player.create(name: "Herry", email: "herry@hotmail.com", username: "herry", bio: "all-star", password: "Jfive", password_confirmation: "Jfive")
 
 jerry_game = GamePlayer.create(player_id: 1, game_id: 1)
 terry_game = GamePlayer.create(player_id: 2, game_id: 1)
