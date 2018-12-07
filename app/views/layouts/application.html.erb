@@ -10,9 +10,9 @@
   </head>
 
   <body>
-    <nav>
+    <nav class="ui secondary menu">
       <% if cur_player %>
-        <%= link_to "Logout", logout_path, method: :delete %> <br>
+        <%= link_to "Logout", logout_path, {:method => :delete, :class => "item"} %> <br>
         <%= link_to "Player Home Page", player_path(cur_player) %>
         <p>Welcome Baller <%= cur_player.name %>!!!</p>
       <% else %>
