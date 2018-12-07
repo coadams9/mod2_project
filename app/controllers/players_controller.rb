@@ -25,7 +25,6 @@ class PlayersController < ApplicationController
   end
 
   def create
-    byebug
     @player = Player.new(player_params)
 
     if @player.save
@@ -63,7 +62,7 @@ class PlayersController < ApplicationController
 
   private
   def player_params
-    params.require(:player).permit(:name, :username, :email, :bio)
+    params.require(:player).permit(:name, :username, :email, :bio, :password, :password_confirmation)
   end
 
 end
