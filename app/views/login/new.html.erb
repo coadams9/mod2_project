@@ -1,11 +1,34 @@
 <h1>Login</h1>
 
-<%= form_tag(action: "create") do %>
+
+
+
+
+<%= form_tag(action: "create", class: "ui large form") do %>
+<!-- <div class="ui stacked segment"> -->
+
+
+<div class="field">
+  <div class="ui icon input">
+    <i class="user icon"></i>
   <%= label_tag("Username") %>
   <%= text_field_tag("username") %>
+    </div>
+  </div>
 
+  <div class="field">
+    <div class="ui icon input">
+      <i class="lock icon"></i>
   <%= label_tag("Password") %>
   <%= password_field_tag("password") %>
+  </div>
+</div>
 
   <%= submit_tag("Login") %>
+
 <%end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

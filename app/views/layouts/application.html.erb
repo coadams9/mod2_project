@@ -10,16 +10,20 @@
   </head>
 
   <body>
-    <nav class="ui secondary menu">
+    <div class="ui container">
+
+
+    <div class="ui secondary pointing menu">
       <% if cur_player %>
-        <%= link_to "Logout", logout_path, {:method => :delete, :class => "item"} %> <br>
-        <%= link_to "Player Home Page", player_path(cur_player) %>
-        <p>Welcome Baller <%= cur_player.name %>!!!</p>
+      <a class="item"> <%= link_to "Logout", logout_path, {:method => :delete, :class => "item"} %> </a>
+      <a class="item">  <%= link_to "Player Home Page", player_path(cur_player) %> </a>
+      <a class="item">Welcome Baller <%= cur_player.name %>!!!</a>
       <% else %>
         <%= link_to("Login", login_path) %>  |
         <%= link_to("Signup", new_player_path) %>
       <% end %>
-    </nav>
+
+    </div>
 
     <% if flash[:error] %>
       <p style="color: red">
@@ -30,8 +34,14 @@
         <%= flash[:notice] %></p>
     <%end %>
 
+    <div class="ui middle aligned center aligned grid">
+      <div class="ten wide column">
+
 
     <%= yield %>
+
+      </div>
+    </div>
   </body>
 
 

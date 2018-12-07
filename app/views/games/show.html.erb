@@ -3,11 +3,10 @@
 <% else %>
   <h1> A Game in your area </h1>
 <% end %>
-  <ul>
+
     <li>Title: <%=@game.title%></li>
     <li>Location: <%=@game.location%></li>
     <li>Time: <%=@game.time%></li>
-  </ul>
 
 <h4> Who's all goin <h4>
   <%@game.players.each do |player|%>

@@ -9,13 +9,12 @@ class InvitesController < ApplicationController
       redirect_to player_path(cur_player.id)
       flash[:notice] = "Your invite has been sent!"
     else
-      flash[:notice] = "Please try again."
+      flash[:notice] = "You already invited this player :)"
       render :new
     end
   end
 
   def rsvp
-    # byebug
     @invite = Invite.find(params[:id])
     @invite.responded = true
     @invite.save

@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   before_action :authorize, except: [:show, :index]
 
   def index
-    @games = Game.all
+    @games = Game.future_games
   end
 
   def show

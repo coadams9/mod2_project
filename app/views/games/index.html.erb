@@ -1,6 +1,6 @@
 <h1>All available games</h1>
 
-<ul>
+
 <% @games.each do |game|%>
   <h3>Title: <%= link_to(game.title, game_path(game))%></h3>
   <li>Place: <%= game.location%></li>
@@ -8,4 +8,3 @@
   </br>
 
 <%end%>
-<ul>

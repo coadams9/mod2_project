@@ -10,6 +10,10 @@ class Game < ApplicationRecord
     Game.find(invite.game_id)
   end
 
-  
+  def self.future_games
+    Game.all.where("time > ?", DateTime.now)
+  end
+
+
 
 end

@@ -1,10 +1,13 @@
 <h1> Who you want to ball with you </h1>
 
-  <%= form_for @invite do |f| %>
+  <%= form_for @invite, :html => {:class => "ui form"} do |f| %>
+
+
 
     <%= f.label :Player%>
+    <div class="field">
     <%= f.collection_select :invited_id, Player.all_but_me(cur_player), :id, :name, prompt: true %>
-
+  </div>
     <%= f.label :Which_game_we_talkin_about %>
     <%= f.collection_select :game_id, Player.games_im_in(cur_player), :id, :title, prompt: true %>
     <%= f.submit %>

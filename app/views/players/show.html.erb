@@ -11,7 +11,7 @@
 
 
 <h2> Invites to games </h2>
-  <ul>
+
   <% Player.cur_invites(@player).each do |invite| %>
 
     <%if invite.responded == false %>
@@ -21,14 +21,14 @@
     <%end %>
 
   <%end %>
-  </ul>
 
-  <h2><%= link_to "Invite your friends", new_invite_path %></h2>
+
+  <h2><%= link_to "Invite your friends here", new_invite_path %></h2>
 
 
 <h2> Upcoming games </h2>
 <% Player.games_im_in(@player).each do |game| %>
-  <li><%= game.title %></li>
+  <li><%= link_to game.title, game_path %></li>
   <li><%= game.time %></li>
     </br>
   <%end %>
