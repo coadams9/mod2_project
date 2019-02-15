@@ -1,24 +1,22 @@
 <h1>Welcome to Dimes!! Create A Profile</h1>
+<div class="ui form">
+  <div class="fields">
+    <%= bootstrap_form_for @player do |f|%>
+      <%= f.text_field :name %>
 
-<%= form_for @player do |f|%>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+      <%= f.text_field :email %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+      <%= f.text_field :username %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+      <%= f.password_field :password %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+      <%= f.password_field :password_confirmation %>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+      <%= f.label :Describe_Your_Game %>
+      <%= f.text_area :bio %>
 
-  <%= f.label :Describe_Your_Game %>
-  <%= f.text_area :bio %>
+    <%= f.submit %>
 
-<%= f.submit %>
-
-<% end %>
+    <% end %>
+  </div>
+</div>

@@ -31,7 +31,7 @@ class PlayersController < ApplicationController
       redirect_to player_path(@player)
     else
       render :new
-      flash[:error] = "Couldn't save ya."
+      flash[:error] = "Couldn't create user."
       logger.error @player.errors.full_messages
     end
   end
