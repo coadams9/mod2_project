@@ -4,10 +4,9 @@ class LoginController < ApplicationController
 
   def create
     @player = Player.find_by username: params[:username]
-    if @player.authenticate params[:password]
+    if @player && @player.authenticate(params[:password])
       session[:player_id] = @player.id
       redirect_to player_path(@player)
-
     else
       flash[:notice] = "Not a valid login."
       render :new
