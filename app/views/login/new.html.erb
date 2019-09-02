@@ -1,36 +1,26 @@
-<h1>Login</h1>
+<%= form_tag({:controller => 'login', :action => "create"}, :class => 'forms') do %>
+  <!-- <div class="ui stacked segment"> -->
 
+  <h1>Login</h1>
 
-
-
-
-<%= form_tag(action: "create", class: "ui large form") do %>
-<!-- <div class="ui stacked segment"> -->
-
-
-<div class="field">
-  <div class="login_page">
-  <div class="ui icon input">
-    <i class="user icon"></i>
   <%= label_tag("Username") %>
-  <%= text_field_tag("username") %>
+  <div class="field">
+    <div class="ui icon input">
+      <i class="user icon"></i>
+    <%= text_field_tag("username") %>
     </div>
   </div>
-  </div>
+
+  <%= label_tag("Password") %>
   <div class="field">
     <div class="ui icon input">
       <i class="lock icon"></i>
-  <%= label_tag("Password") %>
-  <%= password_field_tag("password") %>
-  </div>
-
-</div>
-
-  <%= submit_tag("Login") %>
-
-<%end %>
-        </div>
-      </div>
+    <%= password_field_tag("password") %>
     </div>
   </div>
-</form>
+
+  <%= submit_tag("Login") %>
+  
+  </form>
+<%end %>
+        

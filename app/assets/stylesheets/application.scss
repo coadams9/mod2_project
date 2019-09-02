@@ -16,11 +16,10 @@
 
 @import "semantic-ui";
 @import "bootstrap-sprockets";
-@import 'bootstrap';
+@import "bootstrap";
 
-.home_page {
-   background-image: url("https://images.unsplash.com/photo-1518065336951-d16c043900d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
-
+body {
+  background-image: url("https://images.unsplash.com/photo-1518065336951-d16c043900d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
 }
 
 .login_page {
@@ -28,7 +27,58 @@
   margin-left: 10px;
 }
 
-.fields {
-    display: flex;
-    justify-content: center;
+// .fields {
+//   display: flex;
+//   justify-content: center;
+// }
+
+#navbarOptions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  margin-top: 16px;
+  font-size: 17px;
+  margin-right: 10px;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  /* margin: 15em; */
+  align-items: center;
+  background-image: url(bball2.jpeg);
+  opacity: 1;
+  height: 50%;
+  margin-left: 20em;
+  margin-right: 20em;
+  margin-top: 15em;
+  color: #327aae;
+  border-style: solid;
+  justify-content: center;
+
+  .label {
+    font-weight: bolder;
+  }
+}
+
+#player-image {
+  background-image: url(jordan.jpg);
+  height: 15em;
+  max-width: 23%;
+  background-size: contain;
+}
+
+.player-page {
+  margin: 10px;
+  color: #327ab7;
+}
+
+#game-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 4em;
+  color: #327ab7;
 }

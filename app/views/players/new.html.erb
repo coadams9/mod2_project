@@ -1,22 +1,23 @@
-<h1>Welcome to Dimes!! Create A Profile</h1>
-<div class="ui form">
-  <div class="fields">
-    <%= bootstrap_form_for @player do |f|%>
-      <%= f.text_field :name %>
+<%= form_for(@player, :html => {:class => 'forms'}) do |f|%>
+  <h1>Welcome to Dimes!! Create A Profile</h1>
+    <%= f.label("Name") %>
+    <%= f.text_field :name %>
 
-      <%= f.text_field :email %>
+    <%= f.label("Email") %>
+    <%= f.text_field :email %>
 
-      <%= f.text_field :username %>
+    <%= f.label("Username") %>
+    <%= f.text_field :username %>
 
-      <%= f.password_field :password %>
+    <%= f.label("Password") %>
+    <%= f.password_field :password %>
 
-      <%= f.password_field :password_confirmation %>
+    <%= f.label("Password Confirmation") %>
+    <%= f.password_field :password_confirmation %>
 
-      <%= f.label :Describe_Your_Game %>
-      <%= f.text_area :bio %>
+    <%= f.label :Describe_Your_Game %>
+    <%= f.text_area :bio %>
 
-    <%= f.submit %>
+  <%= f.submit %>
 
-    <% end %>
-  </div>
-</div>
+<% end %>

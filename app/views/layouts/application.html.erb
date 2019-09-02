@@ -10,28 +10,25 @@
   </head>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div id='navbarOptions'>
     <a href='#' class="navbar-brand">Dimes</a>
         <% if cur_player %>
+        <div class='nav'>
         <a class="nav-item nav-link">Welcome Baller <%= cur_player.name %>!!!</a>
         <a class="nav-item nav-link"> <%= link_to "Logout", logout_path, {:method => :delete, :class => "item"} %> </a>
         <a class="nav-item nav-link">  <%= link_to "Player Home Page", player_path(cur_player) %> </a>
+        </div>
 
         <% else %>
+        <div class='nav'>
           <%= link_to("Login", login_path) %>  |
           <%= link_to("Signup", new_player_path) %>
+        </div>
         <% end %>
-
-    </div>
+        </div>
   </nav>
 
   <body>
-    <div class="ui container">
-
-
-    <div class="ui secondary pointing menu">
-
-
-    </div>
 
     <% if flash[:error] %>
       <p style="color: red">
@@ -42,14 +39,8 @@
         <%= flash[:notice] %></p>
     <%end %>
 
-    <div class="ui middle aligned center aligned grid">
-      <div class="ten wide column">
-
-
     <%= yield %>
 
-      </div>
-    </div>
   </body>
 
 

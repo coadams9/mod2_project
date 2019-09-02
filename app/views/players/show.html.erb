@@ -1,60 +1,53 @@
-<div class="ui container centered">
-  <h1 class="ui header">Your Profile Page</h1>
-</div>
+<div class='player-page'>
+  <h1><%= @player.name %>'s Profile</h1>
+  <h4><u><%= link_to "Invite Friends To Play", new_invite_path %></u></h4>
+  <h4><u><%= link_to "All Available Games", games_path %></u></h4>
+  <h4><u><%= link_to "Create a game", new_game_path %></u></h4>
 
-  <div class="row">
-    <div class="card col">
-      <img class="card-img-top" src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Your profile photo here...">
-      <div class="card-body">
-        <h1 class="card-title">Your info:</h1>
-        <h2>Name: <%= @player.name %></h2>
 
-        <h2>Uersname: <%= @player.username %></h2>
-        <h2>Bio: </h2>
-          <p><%= @player.bio %></p>
-      </div>
+  <div id='player-image'></div>
+
+  <h3>Username: <%= @player.username %></h3>
+  <h3>My game is: <%= @player.bio %></h3>
+
+  <div id='game-menu'>
+    <div id='invites-to-games'>
+      <h3> Invites to games: </h3>
+
+      <% Player.cur_invites(@player).each do |invite| %>
+
+        <%if invite.responded == false %>
+          <h2>Game title: <%= link_to Game.find_game_from_invite(invite).title,  game_path(Game.find_game_from_invite(invite))%></h2>
+          <%=  button_to "Accept", rsvp_path(invite.id, "accept") %>
+          <%=  button_to "Decline", rsvp_path(invite.id, "decline") %>
+        <%end %>
+      <%end %>
     </div>
 
+    <div id='upcoming-games'>
+      <h3> Upcoming games: </h3>
+      
+      <% Player.games_im_in(@player).each do |game| %>
+        <h2><%= link_to game.title, game_path %></h2>
+        <h2><%= game.time %></h2>
+        </br>
+      <%end %>
+    </div>
 
-  <div class="card col">
+    <div id='past-games'>
+      <h3> Past Games: </h3>
 
-<h2 class="card-body"> Invites to games: </h2>
-
-  <% Player.cur_invites(@player).each do |invite| %>
-
-    <%if invite.responded == false %>
-      <h5>Game title: <%= link_to Game.find_game_from_invite(invite).title,  game_path(Game.find_game_from_invite(invite))%></h5>
-      <%=  button_to "Accept", rsvp_path(invite.id, "accept") %>
-      <%=  button_to "Decline", rsvp_path(invite.id, "decline") %>
-    <%end %>
-
-  <%end %>
-  <h2 class="card-body"><%= link_to "Invite your friends here«»", new_invite_path %></h2>
-
-</div>
-
-
-<div class="card col">
-
-<h2 class="card-body"> Upcoming games: </h2>
-<% Player.games_im_in(@player).each do |game| %>
-  <h5><%= link_to game.title, game_path %></h5>
-  <h5><%= game.time %></h5>
-    </br>
-  <%end %>
-
-<h2 class="card-body"><%= link_to "All Available Games", games_path %></h2>
-<h2 class="card-body"><%= link_to "Create a game", new_game_path %></h2>
-<h2 class="card-body"> Past Games: </h2>
-<% @player.games.where("time < ?", DateTime.now).each do |game| %>
-  <h5><%= game.title %></h5>
-  <h5><%= game.time %></h5>
-    </br>
-  <%end %>
-
-
-
+      <% @player.games.where("time < ?", DateTime.now).each do |game| %>
+        <h2><%= game.title %></h2>
+        <h2><%= game.time %></h2>
+        </br>
+      <%end %>
+    </div>
 
   </div>
 
 </div>
+
+
+
+
