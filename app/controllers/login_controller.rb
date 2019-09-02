@@ -8,14 +8,14 @@ class LoginController < ApplicationController
       session[:player_id] = @player.id
       redirect_to player_path(@player)
     else
-      flash[:notice] = "Not a valid login."
-      render :new
+      flash[:error] = "Not a valid login."
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     session[:player_id] = nil
-    redirect_to games_path
+    redirect_to login_path
   end
 
 

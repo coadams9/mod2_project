@@ -1,6 +1,5 @@
-<h1> Create a Game </h1>
-
-<%= form_for @game, url: {action: "create"} do |f| %>
+<%= form_for(@game, :html => {:class => 'forms'}) do |f| %>
+  <h1> Create a Game </h1>
 
   <%= f.label :game_title%>
   <%= f.text_field :title %>

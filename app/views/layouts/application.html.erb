@@ -9,34 +9,32 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div id='navbarOptions'>
-    <a href='#' class="navbar-brand">Dimes</a>
-        <% if cur_player %>
-        <div class='nav'>
-        <a class="nav-item nav-link">Welcome Baller <%= cur_player.name %>!!!</a>
-        <a class="nav-item nav-link"> <%= link_to "Logout", logout_path, {:method => :delete, :class => "item"} %> </a>
-        <a class="nav-item nav-link">  <%= link_to "Player Home Page", player_path(cur_player) %> </a>
-        </div>
 
-        <% else %>
-        <div class='nav'>
-          <%= link_to("Login", login_path) %>  |
-          <%= link_to("Signup", new_player_path) %>
-        </div>
-        <% end %>
-        </div>
-  </nav>
+  <div id='navbarOptions'>
+    <h4>Dimes</h4>
+    <% if cur_player %>
+    <div class='nav'>
+      <h4>Welcome Baller <%= cur_player.name %>!!!</h4>
+      <h4><%= link_to "Home Page", player_path(cur_player) %> </h4>
+      <h4><%= link_to "Logout", logout_path, {:method => :delete, :class => "item"} %> </h4>
+    </div>
+
+    <% else %>
+    <div class='nav'>
+      <%= link_to("Login", login_path) %>  |
+      <%= link_to("Signup", new_player_path) %>
+    </div>
+    <% end %>
+  </div>
+
 
   <body>
-
     <% if flash[:error] %>
-      <p style="color: red">
-        <%= flash[:error] %>
-      </p>
+      <h4 style="color: red"> <%= flash[:error] %></h4>
     <% elsif flash[:notice] %>
-      <p style="color: green">
-        <%= flash[:notice] %></p>
+      <h4 style="color: green"><%= flash[:notice] %></h4>
+    <% else %>
+      <% nil %>
     <%end %>
 
     <%= yield %>

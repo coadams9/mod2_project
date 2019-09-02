@@ -82,3 +82,16 @@ body {
   margin-top: 4em;
   color: #327ab7;
 }
+
+#navbarOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: #327ab7;
+  background-image: url("balls.jpg");
+
+  h4 {
+    background: black;
+  }
+}
