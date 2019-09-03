@@ -1,10 +1,17 @@
-<h1>All available games</h1>
+<div class='avail-games'>
+  <h1>All available games</h1>
 
 
-<% @games.each do |game|%>
-  <h3>Title: <%= link_to(game.title, game_path(game))%></h3>
-  <li>Place: <%= game.location%></li>
-  <li>Time: <%= game.time%> </li>
-  </br>
+    <div class='game-items-box'>
+      <% @games.each do |game|%>
+        <div class='actual-game'>
+          <h4>Title: <%= link_to(game.title, game_path(game))%></h4>
+          <h4>Place: <%= game.location%></h4>
+          <h4>Time: <%= game.time%> </h4>
+        </div>
+      <%end%>
+    </div>
 
-<%end%>
+  
+
+<div>

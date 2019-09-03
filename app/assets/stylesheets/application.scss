@@ -123,3 +123,31 @@ body {
   padding: 10px;
   border-radius: 20%;
 }
+
+.avail-games {
+  display: flex;
+  height: inherit;
+  background-image: url(mjlebron.jpg);
+  background-size: cover;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.game-items-box {
+  width: -webkit-fill-available;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  margin: 1em;
+}
+
+.actual-game {
+  border-style: solid;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: hsla(231, 18%, 8%, 0.83);
+  margin: 8px;
+}
