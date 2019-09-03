@@ -5,7 +5,7 @@
     <div class='game-items-box'>
       <% @games.each do |game|%>
         <div class='actual-game'>
-          <h4>Title: <%= link_to(game.title, game_path(game))%></h4>
+          <h4 class='popupBox'><span class='text'>View Game Info</span>Title: <%= link_to(game.title, game_path(game))%></h4>
           <h4>Place: <%= game.location%></h4>
           <h4>Time: <%= game.time%> </h4>
         </div>

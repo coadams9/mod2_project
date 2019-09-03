@@ -164,8 +164,27 @@ body {
   padding: 5px;
 }
 
-// ----------------------------------CSS IDEAS----------------//----stretch goals----
+.popupBox {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
 
-// 1. Spinning animation logo - some kind of movement for logo
-// 2. popup box on mouse over
-// 3.music playing in background
+.popupBox .text {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #327ab7;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.popupBox:hover .text {
+  visibility: visible;
+}
