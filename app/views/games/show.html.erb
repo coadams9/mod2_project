@@ -4,15 +4,15 @@
     <h3>Location: <%=@game.location%></h3>
     <h3>Time: <%=@game.time%></h3>
 
-    <h4> Who's all goin <h4>
-      <%@game.players.each do |player|%>
-        <h3> <%= player.name %> </h3>
-        <% if cur_player.name == player.id %>
-          <%=  link_to "Home Page", player_path(cur_player) %>
-        <% else %>
-          <%= button_to "Join game", action: "join_game", controller: "games"%>
-          <%# <%= button_to "View Other Games", games_path %> 
+    <div>
+      <h3> Players in Game </h3>
+      <div class='players'>
+        <%@game.players.each do |player|%>
+        <h4> <%= player.name %> </h4>
         <% end %>
-      <% end %>
+      </div>
+    </div>
+    <%= link_to "View Other Games", games_path %>
+    <%= button_to "Join game", action: "join_game", controller: "games" %>
   </div>
 </div>
