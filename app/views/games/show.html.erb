@@ -1,14 +1,8 @@
 <div class='your-game'>
   <div class='game-background'>
-    <% if cur_player %>
-      <h1> Your Game </h1>
-    <% else %>
-      <h1> A Game in your area </h1>
-    <% end %>
-
-      <h3>Title: <%=@game.title%></h3>
-      <h3>Location: <%=@game.location%></h3>
-      <h3>Time: <%=@game.time%></h3>
+    <h1>Title: <%=@game.title%></h1>
+    <h3>Location: <%=@game.location%></h3>
+    <h3>Time: <%=@game.time%></h3>
 
     <h4> Who's all goin <h4>
       <%@game.players.each do |player|%>
@@ -17,6 +11,7 @@
           <%=  link_to "Home Page", player_path(cur_player) %>
         <% else %>
           <%= button_to "Join game", action: "join_game", controller: "games"%>
+          <%# <%= button_to "View Other Games", games_path %> 
         <% end %>
       <% end %>
   </div>
