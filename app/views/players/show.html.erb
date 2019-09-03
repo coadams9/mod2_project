@@ -1,46 +1,52 @@
 <div class='player-page'>
+
   <h1><%= @player.name %>'s Profile</h1>
   <h4><u><%= link_to "Invite Friends To Play", new_invite_path %></u></h4>
   <h4><u><%= link_to "All Available Games", games_path %></u></h4>
   <h4><u><%= link_to "Create a game", new_game_path %></u></h4>
 
 
-  <div id='player-image'></div>
+
+  <%# <div id='player-image'></div> %>
 
   <h3>Username: <%= @player.username %></h3>
   <h3>My game is: <%= @player.bio %></h3>
 
   <div id='game-menu'>
-    <div id='invites-to-games'>
-      <h3> Invites to games: </h3>
+    <div id='invites-to-games' class='game-items-homepage'>
+      <h3><u> Invites to games</u> </h3>
 
       <% Player.cur_invites(@player).each do |invite| %>
 
         <%if invite.responded == false %>
-          <h2>Game title: <%= link_to Game.find_game_from_invite(invite).title,  game_path(Game.find_game_from_invite(invite))%></h2>
+        <div class='game-objs'>
+          <h5>Game title: <%= link_to Game.find_game_from_invite(invite).title,  game_path(Game.find_game_from_invite(invite))%></h5>
           <%=  button_to "Accept", rsvp_path(invite.id, "accept") %>
           <%=  button_to "Decline", rsvp_path(invite.id, "decline") %>
         <%end %>
+        </div>
       <%end %>
     </div>
 
-    <div id='upcoming-games'>
-      <h3> Upcoming games: </h3>
+    <div id='upcoming-games' class='game-items-homepage'>
+      <h3><u> Upcoming games</u></h3>
       
       <% Player.games_im_in(@player).each do |game| %>
-        <h2><%= link_to game.title, game_path %></h2>
-        <h2><%= game.time %></h2>
-        </br>
+      <div class='game-objs'>
+        <h5><%= link_to game.title, game_path %></h5>
+        <h5><%= game.time %></h5>
+      </div>
       <%end %>
     </div>
 
-    <div id='past-games'>
-      <h3> Past Games: </h3>
+    <div id='past-games' class='game-items-homepage'>
+      <h3><u> Past Games</u> </h3>
 
       <% @player.games.where("time < ?", DateTime.now).each do |game| %>
-        <h2><%= game.title %></h2>
-        <h2><%= game.time %></h2>
-        </br>
+      <div class='game-objs'>
+        <h5><%= game.title %></h5>
+        <h5><%= game.time %></h5>
+      </div>
       <%end %>
     </div>
 

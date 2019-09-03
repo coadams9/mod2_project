@@ -22,7 +22,8 @@ class GamesController < ApplicationController
     @game.players << cur_player
     if @game.save
       # @game_player = GamePlayer.create(game_id: @game.id, player_id: params[:player_id])
-      redirect_to game_path(@game.id)
+      redirect_to player_path(cur_player)
+      flash[:notice]="Game Created! Invite Your Friends To Join And Get Ready!!"
     else
       render :new
     end

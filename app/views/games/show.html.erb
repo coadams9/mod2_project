@@ -1,16 +1,23 @@
-<% if cur_player %>
-  <h1> Your Game </h1>
-<% else %>
-  <h1> A Game in your area </h1>
-<% end %>
+<div class='your-game'>
+  <div class='game-background'>
+    <% if cur_player %>
+      <h1> Your Game </h1>
+    <% else %>
+      <h1> A Game in your area </h1>
+    <% end %>
 
-    <li>Title: <%=@game.title%></li>
-    <li>Location: <%=@game.location%></li>
-    <li>Time: <%=@game.time%></li>
+      <h3>Title: <%=@game.title%></h3>
+      <h3>Location: <%=@game.location%></h3>
+      <h3>Time: <%=@game.time%></h3>
 
-<h4> Who's all goin <h4>
-  <%@game.players.each do |player|%>
-    <li> <%= player.name %> </li>
-  <% end %>
-
-<%= button_to "Join game", action: "join_game", controller: "games"%>
+    <h4> Who's all goin <h4>
+      <%@game.players.each do |player|%>
+        <h3> <%= player.name %> </h3>
+        <% if cur_player.name == player.id %>
+          <%=  link_to "Home Page", player_path(cur_player) %>
+        <% else %>
+          <%= button_to "Join game", action: "join_game", controller: "games"%>
+        <% end %>
+      <% end %>
+  </div>
+</div>
