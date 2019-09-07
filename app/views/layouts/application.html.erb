@@ -29,9 +29,9 @@
     </div>
 
     <% if flash[:error] %>
-      <h4 style="color: red; position: absolute;"> <%= flash[:error] %></h4>
+      <h4 style="color: red; position: absolute; z-index: 2"> <%= flash[:error] %></h4>
     <% elsif flash[:notice] %>
-      <h4 style="color: green; position: absolute;"><%= flash[:notice] %></h4>
+      <h4 style="color: green; position: absolute; z-index: 2"><%= flash[:notice] %></h4>
     <%end %>
 
     <% flash[:error] = flash[:notice] = nil %>
