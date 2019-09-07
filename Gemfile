@@ -54,7 +54,7 @@ group :development, :test do
   gem 'rb-readline'
 end
 group :production do
-  gem 'pg', '~> 0.18'
+  gem 'pg'
 end
 
 group :test do
